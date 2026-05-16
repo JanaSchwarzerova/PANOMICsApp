@@ -20,7 +20,7 @@ To install the PANOMICs App, follow the instructions below depending on your MAT
 If MATLAB is already installed on your computer, the application can be executed directly:
 
 1. Navigate to:
-   `PANOMICSApp/for_testing/`
+   `PanOMICs_app/for_testing/`
 2. Run:
    `PANOMICs.exe`
 
@@ -31,7 +31,7 @@ If MATLAB is already installed on your computer, the application can be executed
 If MATLAB is not installed or you do not have a valid MATLAB license, you can use the standalone version of the application.
 
 1. Navigate to:
-   `PANOMICSApp/for_redistribution/`
+   `PanOMICs_app/for_redistribution/`
 2. Run the installer:
    `MyAppInstaller_web.exe`
 3. After installation, download the example input data from:
