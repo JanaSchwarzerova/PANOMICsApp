@@ -13,20 +13,58 @@ The PANOMICs app, implemented using Matlab2023b App Designer, provides a user-fr
 
 ## Installation
 
-To install the PANOMICs App, follow these instructions based on your Matlab setup:
+To install the PANOMICs App, follow the instructions below depending on your MATLAB setup.
 
-- **If you have Matlab installed on your PC:**  
-  You can run the app directly using the executable file provided. Navigate to the folder `PANOMICSApp/for_testing/` and execute `PANOMICs.exe`.
+### Option 1: MATLAB installed
 
-- **If you do not have Matlab or a valid Matlab license:**  
-  You can install the app using the standalone installer. Download and run `MyAppInstaller_web.exe` from the folder `PANOMICSApp/for_redistribution/` to install the application on your computer. After installation, download the folder with the input example data (available in path `PANOMICSApp/for_testing/input_example`) to the folder where you have the `.exe` application installed.
+If MATLAB is already installed on your computer, the application can be executed directly:
 
-## Input
+1. Navigate to:
+   `PanOMICs_app/for_testing/`
+2. Run:
+   `PANOMICs.exe`
+
+---
+
+### Option 2: Standalone version (no MATLAB required)
+
+If MATLAB is not installed or you do not have a valid MATLAB license, you can use the standalone version of the application.
+
+1. Navigate to:
+   `PanOMICs_app/for_redistribution/`
+2. Run the installer:
+   `MyAppInstaller_web.exe`
+3. After installation, download the example input data from:
+   `PANOMICSApp/for_testing/input_example`
+4. Place the example data folder in the same directory as the installed application executable.
+
+#### Web version
+
+A web-based version of the PANOMICS App is also available for demonstration purposes and lightweight analyses:
+
+[https://apps.pph.univie.ac.at/webapps/home/](https://apps.pph.univie.ac.at/webapps/home/)
+
+The web and desktop versions share a consistent user interface and do not require a MATLAB license. Users can upload datasets, perform preprocessing, visualize data, and run prediction analyses directly through the browser.
+
+The web version provides the full core functionality of the application; however, performance may be limited by server-side computational resources, particularly for large datasets or computationally intensive analyses. For such cases, the standalone desktop version is recommended.
+
+
+#### Important
+
+To run the standalone application, it is required to download and install **MATLAB Runtime R2023b (23.2)**.
+
+The MATLAB Runtime is freely available and does **not** require any MATLAB license. It enables running the full desktop application independently of MATLAB.
+
+[Download MATLAB Runtime R2023b (23.2) here](https://www.mathworks.com/products/compiler/matlab-runtime.html)
+
+Please install the MATLAB Runtime before launching the application.
+
+## 1. Input
 
 The first section of the app is designed for uploading data. The app expects genomic data in the form of SNP matrices, where '0' indicates an undetected SNP and '1' indicates a detected SNP. Users can also upload metabolomic data related to individual samples associated with the SNP data. Additionally, phenotypic data can be uploaded for calculating Polygenic Risk Scores (PRS) and panOMICs predictions.
 
-- **Pre-processing:**  
-  If the data has already been pre-processed, users can proceed directly to analysis. If pre-processing is needed, the app offers an automated pre-processing option. This feature fills missing values in genomic and phenotypic datasets with zeros, and for metabolomics data, it replaces missing values with half the minimum value and performs a log10 transformation on the absolute values.
+- **Data processing:**  
+  Users can upload genomic datasets in SNP matrix format, optionally supplemented with metabolomic and phenotypic data. Pre-processed datasets can be analyzed directly, while raw data can be processed using an automated preprocessing pipeline. This includes imputation of missing values (replaced with zeros for genomic and phenotypic data), substitution of missing metabolomic values with half of the minimum detected value, and log10 transformation of metabolite intensities. 
 
 ### Tested Data
 
@@ -52,7 +90,7 @@ The 'Visualization' section enhances the understanding of individual input sampl
 - **GWAS Button:**  
   Prompts the user to add SNP information for correct rendering in the Manhattan plot.
 
-## Prediction Approaches
+## 2. Panome prediction section 
 
 The "Prediction Approaches" section offers users a range of options for making predictions, applicable to genomic predictions, metabolome predictions, OMICs predictions, and polygenic risk score (PRS) calculations.
 
@@ -60,7 +98,7 @@ The "Prediction Approaches" section offers users a range of options for making p
 
 The PRS feature calculates an aggregate measure of genetic risk based on multiple SNPs associated with a particular phenotype. It provides a CSV file with the PRS results, which can be further analyzed or visualized.
 
-## Prediction Methods
+## 3. Prediction methods section
 
 The core components of the app are the 'Prediction Methods' sections. Users can select their desired predictions and specify the methods to be used. The app offers nine different prediction methods, categorized into linear, non-linear, and deep learning approaches.
 
@@ -82,7 +120,7 @@ The core components of the app are the 'Prediction Methods' sections. Users can 
 - **LSTM (Long Short-Term Memory)**  
 - **CNN (Convolutional Neural Network)**  
 
-## Outputs (Results)
+## 4. Outputs (Results)
 
 The results are divided into two parts, relying on genomics/metabolomics/OMICs prediction analysis. The prediction analysis is evaluated using mean square error (MSE), mean absolute error (MAE), and correlation coefficient (cc). Additionally, the software allows for visualizing a box plot of predicted and original values.
 
@@ -93,6 +131,8 @@ Focuses on single metabolites. Users can select the metabolite using the slider 
 ### Multivariate Prediction
 
 Includes all metabolites. The usage is analogous to univariate prediction.
+
+Results can be saved in .mat format within this section and later reloaded in the Input section for further analysis or integration with new datasets. To support model selection and benchmarking, the application also includes an option to generate HTML reports, enabling systematic comparison of prediction performance across all implemented methods.
 
 At the end, the user can either switch to another method in the "Prediction Methods" section and run a new prediction or use the RESET button to restore the application to its default settings.
 
@@ -106,5 +146,7 @@ At the end, the user can either switch to another method in the "Prediction Meth
 
 
 ## The predecessor of this app, which was titled the CaGe app, was funded:
-This work has been supported by grant FEKT-K-21-6878, realized within the project Quality Internal Grants of BUT (KInG BUT), Reg. No. CZ.02.2.69 / 0.0 / 0.0 / 19_073 / 0016948, which is financed from the OP RDE.
+Supported by Ministry of Health, Czech Republic - conceptual development of research organization (FNOs/2024). 
+This article has been produced with the financial support of the European Union under the LERCO project number CZ.10.03.01/00/22_003/0000003 via the Operational Programme Just Transition.
+
 
