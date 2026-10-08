@@ -1,4 +1,4 @@
-PanOMICs_app Executable
+PanOMICs_app_2025 Executable
 
 1. Prerequisites for Deployment 
 
@@ -24,7 +24,7 @@ in the MathWorks Documentation Center.
 
 Files to Package for Standalone 
 ================================
--PanOMICs_app.exe
+-PanOMICs_app_2025.exe
 -MCRInstaller.exe 
     Note: if end users are unable to download the MATLAB Runtime using the
     instructions in the previous section, include it when building your 
