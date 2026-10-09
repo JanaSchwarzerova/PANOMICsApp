@@ -105,10 +105,7 @@ Run each algorithm in **both** desktop and deployed web settings using documente
 
 Suggested CSV columns: `timestamp,app_version,environment,matlab_release,os,cpu,ram_gb,server_quota_gb,algorithm,n,p,q,fold,seed,hyperparameters,mode,fit_s,predict_s,permutation_s,shap_s,total_s,peak_rss_gb,status,error`.
 
-## 7. Manuscript-ready text
 
-> We assessed the theoretical computational scaling of the ten algorithm categories implemented in PANOMICs, based on inspection of the available MATLAB routines. Analytical models were derived for fitting, prediction, and model-interpretability components, and illustrative storage calculations were evaluated across representative dataset dimensions and consumer RAM configurations. These calculations highlight potentially quadratic memory or parameter growth for covariance-based GPR and the current CNN architecture, respectively, while dense linear-model input storage grows with the product of sample and feature counts. The analytical results do not represent empirical desktop or web execution times, measured peak memory, or validated capacity limits. Direct performance measurements across both deployment environments remain necessary to establish practical scalability.
-
-## 8. Source and completeness
+## Source and completeness
 
 This report consolidates all ten source-based analyses: `LASSO_COMPLEXITY.md`, `RR_COMPLEXITY.md`, `ENR_COMPLEXITY.md`, `GPR_COMPLEXITY.md`, `SVR_COMPLEXITY.md`, `PLS_COMPLEXITY.md`, `RF_COMPLEXITY.md`, `LSTM_COMPLEXITY.md`, `CNN_COMPLEXITY.md`, and `fullNN_COMPLEXITY.md`. Helper implementations for permutation importance and SHAP, and runtime configuration values, have not been supplied; corresponding overhead estimates remain conditional.
