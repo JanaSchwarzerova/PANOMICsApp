@@ -65,17 +65,6 @@ For illustration, a dense `double` predictor matrix alone requires `8*n*p` bytes
 5. **Model retention:** The saved `beta`, `XL`, `XS`, and other fit objects are from the final fold only, not a model refitted on all training data.
 6. **Two branches:** Both univariate and multivariate pathways can run if both mode flags are enabled; their work should not be counted as a single five-fit workflow in that case.
 
-## Recommended figure design
-
-- Plot **normalized theoretical work** versus sample count for fixed `p`, `q`, `a`, `I`, and `K`, varying one dimension at a time.
-- Plot **input matrix storage** in MiB separately from model-specific auxiliary arrays.
-- Label curves **analytical scaling scenarios**, not measured runtime or measured peak memory.
-- Do not compare absolute speed between PLS and other algorithms from Big-O expressions alone.
-
-## Suggested manuscript language
-
-> We performed an implementation-informed theoretical analysis of the computational scaling of the PANOMICs PLS workflow. The workflow comprises repeated PLS model fitting, held-out predictions, permutation-based feature importance, and SHAP attribution. The expected computational work depends on the number of observations, predictors, response variables, latent components, and model-evaluation calls required for interpretability. These analytical estimates characterize scaling trends but are not substitutes for measured execution times or peak-memory consumption. Empirical desktop and web benchmarks remain to be completed.
-
 ## Reproducibility requirements for future empirical benchmarks
 
 Record MATLAB release, operating system, CPU, RAM, PLS component count, input dimensions, five disjoint validation folds, permutation repeat count, SHAP configuration, elapsed time, and process peak memory. Report fitting-only and end-to-end workflow measurements separately.
