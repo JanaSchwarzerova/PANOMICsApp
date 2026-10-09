@@ -60,10 +60,6 @@ These are data-array sizes, **not** total or peak RAM measurements. The RF model
 5. In the univariate branch with multiple outcomes, the two assignments to `app.Pred_Val` and `app.Orig_Val` are duplicated; they do not represent a second prediction computation of consequence.
 6. The exact complexities of `calculateRFPermutationImportance`, `calculateSHAP`, and `oobQuantilePredict` remain unresolved until helper implementations and MATLAB settings are examined.
 
-## Suggested manuscript wording
-
-> For Random Forest regression, we performed an implementation-informed theoretical scalability assessment that explicitly accounts for ensemble size, tree growth, out-of-bag prediction, permutation-based feature importance, and SHAP computation. Computational work is expected to increase with the number of trees, samples, and predictors; interpretability procedures may add substantial repeated prediction costs. The reported expressions are analytical scaling models rather than measured execution times or peak memory usage. Empirical benchmarking on the desktop and web implementations remains necessary to establish practical operating limits.
-
 ## Planned empirical validation
 
 Record wall-clock runtime and peak process memory separately for ensemble training, OOB prediction, permutation importance, and SHAP. Repeat under documented hardware/software configurations and systematically vary n, p, T, and explanation sample counts. Do not use this theoretical report as evidence of measured cross-platform performance.
