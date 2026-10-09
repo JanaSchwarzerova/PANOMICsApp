@@ -49,15 +49,6 @@ Parameter and Adam optimizer state scale as `O(P)`; Adam typically maintains two
 7. **Reuse branch:** When the model is reused, the function skips retraining and the new permutation/SHAP computations, so fresh and cached runs have materially different costs.
 8. **Multivariate target:** `mean(outputTrain,2)` collapses multiple outcomes into one target; this is not multi-output LSTM regression.
 
-## Suggested figure design
-
-- **Figure A:** Relative training-work index versus sample count, holding `p,h,d,s,E` fixed. Mark as *theoretical* and note the sequence-layout assumption.
-- **Figure B:** Relative training-work index versus LSTM hidden units `h` for fixed `p,d,s,E,n` (quadratic contribution from recurrent connections).
-- **Figure C:** Estimated parameter storage (MiB) versus `h`, with stated precision and Adam-state assumptions; do not label it peak RAM.
-
-## Manuscript-ready description
-
-> We conducted an implementation-informed theoretical complexity analysis of the LSTM component of PANOMICs. The computational-work model accounts for input dimensionality, recurrent hidden-state width, sequence length, training epochs, and the subsequent dense layers. We additionally distinguished network training and inference from permutation-based feature importance and SHAP calculations, whose cost depends on repeated prediction calls. These analytical estimates describe scaling trends rather than empirically measured execution times or peak memory consumption. The exact interpretation of sequence dimensions in the current MATLAB input representation requires validation before quantitative workload comparisons are finalized.
 
 ## Benchmarking status
 
