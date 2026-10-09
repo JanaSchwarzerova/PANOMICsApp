@@ -24,6 +24,10 @@ If MATLAB is already installed on your computer, the application can be executed
 2. Run:
    `PANOMICs.exe`
 
+### Supported operating systems
+The PANOMICs App is available for Windows and Linux desktop environments. The installation instructions provided below describe the Windows distribution. Installation on Linux and macOS requires platform-specific instructions and, where applicable, compatible application packages.
+For assistance with installation or deployment on Linux or macOS, please contact Jana Schwarzerová at Jana.Schwarzerova@vut.cz. Detailed instructions and information about platform-specific requirements will be provided upon request.
+The standalone desktop application requires a compatible MATLAB Runtime installation but does not require a commercial MATLAB license. MATLAB Runtime R2023b (23.2) is required for the distributed R2023b application build.
 ---
 
 ### Option 2: Standalone version (no MATLAB required)
@@ -135,6 +139,60 @@ Includes all metabolites. The usage is analogous to univariate prediction.
 Results can be saved in .mat format within this section and later reloaded in the Input section for further analysis or integration with new datasets. To support model selection and benchmarking, the application also includes an option to generate HTML reports, enabling systematic comparison of prediction performance across all implemented methods.
 
 At the end, the user can either switch to another method in the "Prediction Methods" section and run a new prediction or use the RESET button to restore the application to its default settings.
+
+## 5. Computational Benchmarking and Scalability
+
+The computational scalability of the PANOMICs App depends on dataset size, feature dimensionality, the selected machine-learning algorithm, and available hardware resources. To support transparent evaluation of these requirements, we provide a dedicated benchmarking section in the GitHub repository.
+
+### Theoretical computational and memory complexity
+
+A detailed theoretical benchmarking report is available here:
+
+PANOMICs Computational Benchmarking
+
+The report (BENCHMARKING_THEORETICAL.md) examines the computational and memory complexity of all ten implemented machine-learning algorithms, considering training, validation, prediction, and model interpretability procedures.
+
+The analysis includes:
+
+Comparative computational complexity and memory-scaling characteristics of individual algorithms.
+
+Illustrative dataset dimensions ranging from 239 × 249 to 10,000 × 50,000 (samples × features).
+
+Memory considerations for desktop configurations with 8, 16, 32, and 64 GB RAM.
+
+Algorithm-specific scalability constraints, including quadratic memory scaling for exact Gaussian Process Regression (GPR) and increasing parameter requirements for high-dimensional convolutional neural network (CNN) architectures.
+
+Graphical representations and comparative analyses of expected computational requirements.
+
+These results represent theoretical estimates rather than experimentally measured execution times or peak memory consumption. They should therefore be interpreted as guidance for computational resource planning, not as validated performance guarantees or maximum supported input sizes.
+
+### Desktop and web implementations
+
+The desktop application performs computations using the resources available on the user's computer. Its practical performance and maximum feasible dataset size depend on available RAM, CPU capabilities, operating system, and selected prediction algorithm.
+
+A web-based beta implementation is also available through the University of Vienna infrastructure:
+
+https://apps.pph.univie.ac.at/webapps/home/
+
+The web implementation is additionally subject to server-side computational resources and concurrent user demand. Consequently, large datasets or computationally intensive models may require the desktop application.
+
+At present, no universal maximum number of samples or features can be specified for all algorithms and deployment environments. Server-specific memory quotas, practical input limits, and behavior under resource exhaustion require further deployment-specific evaluation.
+
+### Empirical benchmarking protocol
+
+A reproducible benchmarking protocol has been established to support future performance evaluations of the desktop and web implementations. The protocol considers:
+
+Execution time for representative machine-learning algorithms.
+
+Peak memory consumption during model training and prediction.
+
+Increasing sample numbers and feature dimensionality.
+
+Hardware and software configurations.
+
+Execution failures and resource-related limitations.
+
+Systematic empirical measurements and corresponding documentation updates are planned on a quarterly basis. Until these measurements are available, the theoretical analysis should not be interpreted as empirical evidence of runtime performance, peak memory usage, or validated scalability limits.
 
 ## Literature
 
