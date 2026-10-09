@@ -74,6 +74,3 @@ These are decimal-to-binary conversions of double storage arithmetic, **not actu
 
 Benchmark **fresh training**, **cached prediction**, and **attribution** separately on the same fixed splits and several (n,p) configurations; record actual `app.ENR_alfa`, `app.ENR_cv`, lambda count, MATLAB version, hardware, wall time, peak process RAM, and any failures. Run desktop and web deployment separately. Repeat 3–5 times and report variability.
 
-## 7. Manuscript-ready qualification
-
-> Elastic Net Regression in PANOMICs is implemented using MATLAB's regularization-path `lasso` routine with an application-defined mixing parameter and cross-validation setting. A 70:30 holdout split is used for model evaluation, while the one-standard-error rule selects the regularization level. For dense inputs, a coordinate-descent-style analytical workload proxy scales with the number of training samples, predictors, regularization values, optimization iterations, and internal validation folds. Stored input and coefficient-path arrays scale approximately as O(np+pL). These relations are theoretical and do not represent measured desktop or web execution times or peak memory utilization.
