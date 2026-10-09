@@ -65,11 +65,3 @@ The full workflow additionally includes:
 ## 6. Suggested benchmark instrumentation
 
 Measure independently (a) SVR training, (b) ordinary prediction, (c) permutation importance, and (d) SHAP. Log dataset dimensions, MATLAB version, hardware, solver/kernel settings, support-vector count, and error status. Use an operating-system process monitor for **peak resident memory**, as memory snapshots at the start and end do not establish peak RAM. Report desktop and web deployment separately. Do not publish illustrative complexity proxies as empirical seconds or RAM measurements.
-
-## 7. Suggested manuscript wording
-
-> We additionally documented the implementation-specific computational structure of the SVR workflow, comprising five model-fitting passes, held-out prediction, permutation-based feature importance, and SHAP-based interpretation. The theoretical analysis identifies training, repeated model evaluations, and explainability procedures as distinct contributors to computational cost. These estimates characterize expected workload scaling but do not substitute for empirical runtime and peak-memory benchmarking of the desktop and web implementations.
-
-## 8. Next step
-
-Inspect `app.calculatePermutationImportance` and `app.calculateSHAP`, then perform measured benchmarks on leakage-free, disjoint folds. A suitable split generator is `cvpartition(n,'KFold',5)` with `training(c,i)` and `test(c,i)`.
