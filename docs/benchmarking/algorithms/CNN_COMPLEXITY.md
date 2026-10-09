@@ -59,15 +59,3 @@ For a single inference pass, replace `E*N` by the number of prediction sequences
 5. A reused network bypasses training and explainability calculations; prediction still runs. Therefore training and reuse modes must be reported separately.
 6. The exact behavior of `predict(net,inputTest','MiniBatchSize',1)` and the returned output orientation should be checked with a small known dataset.
 7. The values of `k1`, `k2`, `k3`, `d1`, `d2`, `E`, `b`, and the helper-function definitions are needed to produce implementation-specific numeric parameter counts or model operation curves.
-
-## 7. Manuscript-ready statement
-
-> We additionally assessed the theoretical computational scaling of the CNN implementation. The architecture comprises three one-dimensional convolutional layers with channel widths proportional to the input feature count, followed by fully connected regression layers. Under a fixed kernel-width assumption, the number of convolutional parameters scales quadratically with the number of input features. Training cost also depends on the number of epochs, training observations, and effective sequence length. These analytical estimates describe expected growth trends and should not be interpreted as measured execution times or peak memory requirements. Systematic empirical benchmarking, including verification of the sequence-data layout and explainability overhead, remains necessary.
-
-## 8. Recommended future benchmark axes
-
-- Feature count `p` at fixed `n`, with architecture as currently specified.
-- Sample count `n` at fixed `p`.
-- Epoch count `E`, mini-batch size `b`, and sequence length `s` (once validated).
-- Separate durations and memory readings for model fitting, prediction, permutation importance, and SHAP.
-- Exact MATLAB version, OS, CPU, RAM, and execution settings.
