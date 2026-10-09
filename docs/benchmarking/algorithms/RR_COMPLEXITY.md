@@ -59,7 +59,7 @@ W_{\mathrm{fit}} \propto (K+1)\,L\,I\,n_{\mathrm{tr}}\,p.
 
 Hence a simplified *data-storage* model is `O(np + pL)`; it **does not estimate measured peak resident memory**.
 
-### Dense input storage examples
+### Dense input storage
 
 | Samples `n` | Features `p` | Input matrix, MiB (8np / 2^20) |
 |---:|---:|---:|
