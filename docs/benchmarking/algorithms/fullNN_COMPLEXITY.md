@@ -41,6 +41,3 @@ A practical symbolic estimate is `O(np+P+b(p+h1+h2+h3)+n_te*p)` plus helper-func
 6. The cached-model path does not recompute SHAP or permutation importance. Fresh and cached workflows are not comparable as equivalent runtime jobs.
 7. SHAP output size, predictor shape, and helper prediction-call count must be verified.
 
-## Manuscript-ready wording
-
-> We derived an implementation-specific analytical workload model for the fully connected feedforward neural network, comprising three ReLU hidden layers and a scalar regression output. At fixed hidden-layer widths, the number of trainable parameters scales linearly with the number of input features, while training work increases approximately linearly with the number of training observations and epochs. The end-to-end application workload additionally includes permutation-based importance and SHAP computations, whose precise cost depends on the respective helper implementations. The reported scaling relations are theoretical and should not be interpreted as measured runtime or peak RAM.
