@@ -49,7 +49,7 @@ These are deterministic storage sizes, not observed application memory:
 
 These figures exclude MATLAB object overhead, temporary copies, factorization workspace, cross-validation buffers, and interpretability calculations.
 
-## 4. Implementation-specific findings (must not be mistaken for benchmark measurements)
+## 4. Implementation-specific findings 
 
 1. **Manual split boundaries overlap.** The test indices for iterations i>1 start at `floor(n/5)*(i-1)` rather than `+1`; training indices also include the end-of-test boundary. This can put observations in both training and testing, invalidating leakage-free fold evaluation. Use `cvpartition(n,'KFold',5)` and `training(c,i)` / `test(c,i)` instead.
 2. **Fold coverage is uneven.** For n not divisible by five, the final remainder is not assigned to a test fold by the displayed indexing; split sizes are inconsistent.
@@ -60,10 +60,4 @@ These figures exclude MATLAB object overhead, temporary copies, factorization wo
 7. **Caching/reuse.** The shown branches repeat model fitting even when `app.GPR_univar_mat` or `app.GPR_multivar_mat` is populated; no model-reuse shortcut is apparent in this function.
 8. **Only last model retained.** `app.GPR_*_mat.gprMdl1 = gprMdl1` stores the last split's model, not an ensemble of all five.
 
-## 5. Proposed empirical benchmark (future)
 
-Measure **training**, **uncertainty prediction**, **permutation importance**, and **SHAP** separately using `tic/toc` (or `timeit` for standalone functions) and record n, p, fold, MATLAB release, fit/predict method, kernel, helper configuration, CPU, RAM, and OS. Measure actual process **peak resident memory** with an OS-level sampler. Benchmark the desktop and web deployments independently; web execution may impose resource quotas and concurrency limits. Include success/failure outcomes and out-of-memory behavior. Use identical input datasets and algorithm parameters for comparability.
-
-## 6. Appropriate interpretation
-
-This analysis supports a **theoretical discussion of expected computational growth** for the supplied GPR workflow. It does not establish practical maximum dataset sizes, measured seconds, measured peak memory, web capacity, or experimentally validated scalability. Empirical measurements must be added before claiming quantitative software benchmarking.
