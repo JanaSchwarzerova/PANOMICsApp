@@ -25,10 +25,12 @@ If MATLAB is already installed on your computer, the application can be executed
    `PANOMICs.exe`
 
 ### Supported operating systems
+
 The PANOMICs App is available for Windows and Linux desktop environments. The installation instructions provided below describe the Windows distribution. Installation on Linux and macOS requires platform-specific instructions and, where applicable, compatible application packages.
 For assistance with installation or deployment on Linux or macOS, please contact Jana Schwarzerová at Jana.Schwarzerova@vut.cz. Detailed instructions and information about platform-specific requirements will be provided upon request.
+
 The standalone desktop application requires a compatible MATLAB Runtime installation but does not require a commercial MATLAB license. MATLAB Runtime R2023b (23.2) is required for the distributed R2023b application build.
----
+
 
 ### Option 2: Standalone version (no MATLAB required)
 
