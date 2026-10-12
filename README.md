@@ -52,8 +52,7 @@ A web-based version of the PANOMICS App is also available for demonstration purp
 
 The web and desktop versions share a consistent user interface and do not require a MATLAB license. Users can upload datasets, perform preprocessing, visualize data, and run prediction analyses directly through the browser.
 
-The web version provides the full core functionality of the application; however, performance may be limited by server-side computational resources, particularly for large datasets or computationally intensive analyses. For such cases, the standalone desktop version is recommended.
-
+Importantly, in the current MATLAB R2023b version, SHAP-based model explainability tools and advanced model diagnostics are available exclusively in the standalone desktop version of the PANOMICs App. These functionalities require advanced graphical rendering and interactive visualization capabilities that are not adequately supported by the MATLAB Web App Server environment in the current version. Support for these functionalities in the web-based application is planned for future upgrades to newer MATLAB versions, subject to their technical compatibility and visualization capabilities. Until then, users interested in detailed model interpretation, SHAP analysis, and diagnostic visualizations are encouraged to use the desktop application.
 
 #### Important
 
